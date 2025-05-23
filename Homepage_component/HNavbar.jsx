@@ -2,17 +2,15 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const Navbar = () => {
+const HNavbar = ({ user }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const navigate = useNavigate();
-  const token = localStorage.getItem("token");
+
   const handleAuth = () => {
-    if (token) {
-      navigate("/homepage");
-    } else {
-      navigate("/auth");
-    }
+    navigate("/profile");
   };
+  console;
+  const userletter = user?.username?.charAt(0).toUpperCase() || "?";
 
   return (
     <nav className="bg-white shadow-md fixed w-full z-50">
@@ -31,7 +29,7 @@ const Navbar = () => {
               href="#features"
               className="text-gray-700 hover:text-orange-500 font-medium transition-colors"
             >
-              Features
+              Flat
             </a>
             <a
               href="#cities"
@@ -39,12 +37,7 @@ const Navbar = () => {
             >
               Cities
             </a>
-            <a
-              href="#how-it-works"
-              className="text-gray-700 hover:text-orange-500 font-medium transition-colors"
-            >
-              How It Works
-            </a>
+
             <a
               href="#testimonials"
               className="text-gray-700 hover:text-orange-500 font-medium transition-colors"
@@ -63,15 +56,9 @@ const Navbar = () => {
           <div className="hidden sm:flex items-center">
             <button
               onClick={handleAuth}
-              className="bg-white text-orange-500 border border-orange-500 px-4 py-2 rounded-lg mr-3 hover:bg-orange-50 transition-colors"
+              className="bg-white text-orange-500 border border-orange-500 px-4 py-2 rounded-full mr-3 hover:bg-orange-50 transition-colors"
             >
-              Log In
-            </button>
-            <button
-              className="gradient-cta text-white px-4 py-2 rounded-lg hover:opacity-90 transition-opacity"
-              onClick={handleAuth}
-            >
-              Sign Up
+              {userletter}
             </button>
           </div>
 
@@ -136,4 +123,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default HNavbar;

@@ -155,3 +155,14 @@
   bottom: 0;
   right: 20px;
 }
+
+/* //auth */
+
+
+.card {
+  transform: rotateY(0deg);
+}
+
+.card.flipped {
+  transform: rotateY(180deg);
+}
